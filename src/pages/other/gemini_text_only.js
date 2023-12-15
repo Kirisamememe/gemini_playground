@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI("AIzaSyDqr5VTIwSM6YR7QuCNq7NIQtsp_M7jnw8");
+const genAI = new GoogleGenerativeAI("");
 
 async function run() {
     // For text-only input, use the gemini-pro model

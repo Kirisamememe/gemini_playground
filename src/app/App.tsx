@@ -19,9 +19,14 @@ const App = () => {
 
         const data = await res.json();
         setResponse(data.reply);
+        console.log(data.reply);
         setHistory([...history, { role: 'user', parts: message }, { role: 'model', parts: data.reply }]);
         // setMessage('');
     };
+
+    const paragraphs = response.split('\n').map((paragraph, index) => (
+        <p key={index} className="paragraph_spacing">{paragraph}</p>
+    ))
 
     return (
         <div className="chat-container">
@@ -31,7 +36,7 @@ const App = () => {
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
             ></textarea>
             <button className="chat-send-button" onClick={sendMessage}>Send</button>
-            <div className="chat-response">{response}</div>
+            <div className="chat-response">{paragraphs}</div>
         </div>
     );
 };
